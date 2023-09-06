@@ -16,7 +16,7 @@ Campus'e giriş yapılmasına gerek yoktur (Şifre güvenliği açısından)
 public class US_02_Faruk extends BaseDriver {
 
     @Test
-    public void loginTest(){
+    public void US_02_loginTest(){
         driver.get("https://techno.study/tr");
 
         WebElement campusLogin=driver.findElement(By.linkText("Campus Login"));
