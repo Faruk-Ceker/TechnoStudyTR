@@ -8,6 +8,7 @@ public class MainClass extends BaseDriver {
     public void mainTest (){
 
 
+
         BekleVeKapat();
     }
 }
