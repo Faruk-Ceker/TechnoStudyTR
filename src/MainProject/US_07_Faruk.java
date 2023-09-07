@@ -30,12 +30,13 @@ public class US_07_Faruk extends BaseDriver {
     public void US_07_logoTest () throws AWTException, IOException, InterruptedException {
         driver.navigate().to("https://techno.study/tr");
 
-        String anaSayfailkURL = driver.getCurrentUrl();
+
         List<WebElement> detayliBilgiler = driver.findElements(By.xpath("//a[text()='Detaylı bilgi']"));
         Assert.assertTrue("Her kurs için detaylı bilgi butonu yok",detayliBilgiler.size()==3);
 
         WebElement sdetBilgi = driver.findElement(By.xpath("(//a[text()='Detaylı bilgi'])[2]"));
         sdetBilgi.click();
+
         wait.until(ExpectedConditions.urlToBe("https://techno.study/tr/sdet"));
         Assert.assertTrue("Hatalı kurs sayfasına yönlendirildi",driver.getCurrentUrl().contains("sdet"));
 
