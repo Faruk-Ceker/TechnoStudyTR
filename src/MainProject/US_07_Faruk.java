@@ -27,8 +27,8 @@ import java.util.List;
 public class US_07_Faruk extends BaseDriver {
 
     @Test
-    public void US_07_logoTest () throws AWTException, IOException {
-        driver.get("https://techno.study/tr");
+    public void US_07_logoTest () throws AWTException, IOException, InterruptedException {
+        driver.navigate().to("https://techno.study/tr");
 
         String anaSayfailkURL = driver.getCurrentUrl();
         List<WebElement> detayliBilgiler = driver.findElements(By.xpath("//a[text()='Detaylı bilgi']"));
@@ -39,25 +39,18 @@ public class US_07_Faruk extends BaseDriver {
         wait.until(ExpectedConditions.urlToBe("https://techno.study/tr/sdet"));
         Assert.assertTrue("Hatalı kurs sayfasına yönlendirildi",driver.getCurrentUrl().contains("sdet"));
 
-        WebElement homePageLogo = driver.findElement(By.xpath("//img[@alt='TechnoStudy']"));
-        homePageLogo.click();
 
-        wait.until(ExpectedConditions.urlToBe("https://techno.study/home"));
-        String anaSayfaYeniURL = driver.getCurrentUrl();
+        driver.navigate().back();
 
-        if (anaSayfailkURL!=anaSayfaYeniURL) {
-            TakesScreenshot ts = (TakesScreenshot) driver;
-            File hafizadakiHali = ts.getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(hafizadakiHali, new File("src\\ekranGoruntuleri\\screenshot_Faruk.png"));
-        }
 
-        WebElement androidBilgi = driver.findElement(By.xpath("(//a[text()='Detaylı bilgi'])[2]"));
+        WebElement androidBilgi = driver.findElement(By.xpath("(//a[text()='Detaylı bilgi'])[3]"));
         androidBilgi.click();
         wait.until(ExpectedConditions.urlToBe("https://techno.study/tr/androidapp"));
         Assert.assertTrue("Hatalı kurs sayfasına yönlendirildi",driver.getCurrentUrl().contains("android"));
 
 
-        homePageLogo.click();
+        driver.navigate().back();
+
 
 
         WebElement dataBilgi = driver.findElement(By.xpath("(//a[text()='Detaylı bilgi'])[1]"));
