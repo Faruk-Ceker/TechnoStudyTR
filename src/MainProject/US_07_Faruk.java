@@ -30,7 +30,6 @@ public class US_07_Faruk extends BaseDriver {
     public void US_07_logoTest () throws AWTException, IOException, InterruptedException {
         driver.navigate().to("https://techno.study/tr");
 
-
         List<WebElement> detayliBilgiler = driver.findElements(By.xpath("//a[text()='Detaylı bilgi']"));
         Assert.assertTrue("Her kurs için detaylı bilgi butonu yok",detayliBilgiler.size()==3);
 
@@ -40,19 +39,14 @@ public class US_07_Faruk extends BaseDriver {
         wait.until(ExpectedConditions.urlToBe("https://techno.study/tr/sdet"));
         Assert.assertTrue("Hatalı kurs sayfasına yönlendirildi",driver.getCurrentUrl().contains("sdet"));
 
-
         driver.navigate().back();
-
 
         WebElement androidBilgi = driver.findElement(By.xpath("(//a[text()='Detaylı bilgi'])[3]"));
         androidBilgi.click();
         wait.until(ExpectedConditions.urlToBe("https://techno.study/tr/androidapp"));
         Assert.assertTrue("Hatalı kurs sayfasına yönlendirildi",driver.getCurrentUrl().contains("android"));
 
-
         driver.navigate().back();
-
-
 
         WebElement dataBilgi = driver.findElement(By.xpath("(//a[text()='Detaylı bilgi'])[1]"));
         dataBilgi.click();
