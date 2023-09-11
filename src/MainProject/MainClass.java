@@ -129,11 +129,11 @@ public class MainClass extends BaseDriver {
     }
 
     @Test
-    public void kursBasvuruTesti() {
+    public void US_03_kursBasvuruTesti() {
 
         String country = "Andorra";
-        String kurs = "SDET Türkçe"; // Menü: SDET Türkçe, Veri Bilimi, Job Center & Arbeitsamt, Veri Analitiği
-        String survey = "Youtube"; // Menü: Youtube, Instagram, Facebook, LinkedIn, Mezundan, Arkadaş vasıtası ile, Website, Başka
+        String kurs = "SDET Türkçe";
+        String survey = "Youtube";
 
         driver.get("https://techno.study/tr");
         MyFunc.Wait(2);
@@ -225,7 +225,7 @@ public class MainClass extends BaseDriver {
     }
 
     @Test
-    public void sosyalMedyaErisimTesti() {
+    public void US_05_sosyalMedyaErisimTesti() {
         driver.get("https://techno.study/tr");
         MyFunc.Wait(2);
 
@@ -327,29 +327,26 @@ public class MainClass extends BaseDriver {
 
     @Test
     public void us_08_kullanimSartlari() throws IOException {
-        /*. "Bize Ulaşın" formunda "Şartları okudum ve kabul ettim" seçeneği bulunmalıdır.
-             Bu seçeneği tıkladığımda, "Kullanım Şartları" sayfasına yönlendirilmelidir.
-            "Kullanım Şartları" sayfası, kullanıcıların şartları okuyup anlamaları için uygun bir şekilde düzenlenmiş olmalıdır.. */
+
         driver.get("https://techno.study/tr/");
 
         WebElement sartlar = driver.findElement(By.xpath("//span[@style='color: rgb(83, 231, 190);']"));
         MyFunc.Wait(3);
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", sartlar);        // elemente kadar kaydırdım sayfayı
+        js.executeScript("arguments[0].scrollIntoView(true);", sartlar);
 
         Assert.assertTrue("beklenen yazı yok", sartlar.getText().contains("Şartlar"));
 
         String urlAnasayfa = driver.getCurrentUrl();
 
-        sartlar.click();   //aşağı indi, tıkladı
+        sartlar.click();
 
         String tiklamaSonrasiURL = driver.getCurrentUrl();
-        //System.out.println(urlAnasayfa+"  "+tiklamaSonrasiURL);  kendıme kontrol ıcın urllerı yazdırdım
 
         TakesScreenshot ts = (TakesScreenshot) driver;
         File hafizadakiHali = ts.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(hafizadakiHali, new File("ekranGoruntuleri\\screenshot_cansu.png"));
+        FileUtils.copyFile(hafizadakiHali, new File("src\\ekranGoruntuleri\\screenshot_cansu.png"));
 
         Assert.assertNotEquals("url değişmedi yeni sayfa açılmadı", tiklamaSonrasiURL, urlAnasayfa);   // eguals olunca test pass ama ben notEquals olmasını beklıyorum ama url ler esıt oldugu ıcın hata verıyor cnku tıklayıncz url degısmedı
 
