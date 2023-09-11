@@ -19,108 +19,107 @@ import java.util.Set;
 public class MainClass extends BaseDriver {
     @Test
 
-    public void US_01_Test(){
+    public void US_01_Test() {
         driver.navigate().to("https://techno.study/tr");
         MyFunc.Wait(2);
 
-        WebElement dropdown=driver.findElement(By.xpath("//div[@class='t228__centerside t228__menualign_left']//a[text()='Kurslar']"));
+        WebElement dropdown = driver.findElement(By.xpath("//div[@class='t228__centerside t228__menualign_left']//a[text()='Kurslar']"));
 
-        Assert.assertTrue("Dropdown menu gozukmuyor",dropdown.isDisplayed());
+        Assert.assertTrue("Dropdown menu gozukmuyor", dropdown.isDisplayed());
 
 
         dropdown.click();
 
-        List<WebElement> menu=driver.findElements(By.className("t966__menu-item-text"));
+        List<WebElement> menu = driver.findElements(By.className("t966__menu-item-text"));
 
-        for(WebElement e : menu){
+        for (WebElement e : menu) {
 
-            Assert.assertTrue("Dropdown menu secenekleri eksik",e.isDisplayed());
+            Assert.assertTrue("Dropdown menu secenekleri eksik", e.isDisplayed());
 
 
         }
         MyFunc.Wait(2);
 
 
-        WebElement sdet=driver.findElement(By.xpath("//div[text()='SDET Yazılım Test Mühendisi']"));
+        WebElement sdet = driver.findElement(By.xpath("//div[text()='SDET Yazılım Test Mühendisi']"));
         sdet.click();
         wait.until(ExpectedConditions.urlToBe("https://techno.study/tr/sdet"));
-        Assert.assertTrue("ilgili kurs sayfasina yonlendirilmedi",driver.getCurrentUrl().equals("https://techno.study/tr/sdet"));
+        Assert.assertTrue("ilgili kurs sayfasina yonlendirilmedi", driver.getCurrentUrl().equals("https://techno.study/tr/sdet"));
         MyFunc.Wait(2);
 
         driver.navigate().back();
         MyFunc.Wait(2);
 
-        WebElement dropdown2=driver.findElement(By.xpath("//div[@class='t228__centerside t228__menualign_left']//a[text()='Kurslar']"));
+        WebElement dropdown2 = driver.findElement(By.xpath("//div[@class='t228__centerside t228__menualign_left']//a[text()='Kurslar']"));
         dropdown2.click();
 
 
         MyFunc.Wait(2);
-        WebElement android=driver.findElement(By.xpath("//div[text()='Android uygulama geliştirme']"));
+        WebElement android = driver.findElement(By.xpath("//div[text()='Android uygulama geliştirme']"));
         android.click();
         wait.until(ExpectedConditions.urlToBe("https://techno.study/tr/androidapp"));
-        Assert.assertTrue("ilgili kurs sayfasina yonlendirilmedi",driver.getCurrentUrl().equals("https://techno.study/tr/androidapp"));
+        Assert.assertTrue("ilgili kurs sayfasina yonlendirilmedi", driver.getCurrentUrl().equals("https://techno.study/tr/androidapp"));
         MyFunc.Wait(2);
 
         driver.navigate().back();
 
         MyFunc.Wait(2);
 
-        WebElement dropdown3=driver.findElement(By.xpath("//div[@class='t228__centerside t228__menualign_left']//a[text()='Kurslar']"));
+        WebElement dropdown3 = driver.findElement(By.xpath("//div[@class='t228__centerside t228__menualign_left']//a[text()='Kurslar']"));
         dropdown3.click();
 
-        WebElement veriBilimi=driver.findElement(By.xpath("//div[text()='Veri bilimi']"));
+        WebElement veriBilimi = driver.findElement(By.xpath("//div[text()='Veri bilimi']"));
         veriBilimi.click();
 
         wait.until(ExpectedConditions.urlToBe("https://techno.study/tr/data"));
 
-        Assert.assertTrue("ilgili kurs sayfasina yonlendirilmedi",driver.getCurrentUrl().equals("https://techno.study/tr/data"));
+        Assert.assertTrue("ilgili kurs sayfasina yonlendirilmedi", driver.getCurrentUrl().equals("https://techno.study/tr/data"));
         MyFunc.Wait(2);
 
         driver.navigate().back();
 
         MyFunc.Wait(2);
 
-        WebElement dropdown4=driver.findElement(By.xpath("//div[@class='t228__centerside t228__menualign_left']//a[text()='Kurslar']"));
+        WebElement dropdown4 = driver.findElement(By.xpath("//div[@class='t228__centerside t228__menualign_left']//a[text()='Kurslar']"));
         dropdown4.click();
 
 
-        WebElement jobCenter=driver.findElement(By.xpath("//div[text()='Job Center & Arbeitsamt']"));
+        WebElement jobCenter = driver.findElement(By.xpath("//div[text()='Job Center & Arbeitsamt']"));
         jobCenter.click();
 
         wait.until(ExpectedConditions.urlToBe("https://techno.study/jobcenter"));
-        Assert.assertTrue("ilgili kurs sayfasina yonlendirilmedi",driver.getCurrentUrl().equals("https://techno.study/jobcenter"));
+        Assert.assertTrue("ilgili kurs sayfasina yonlendirilmedi", driver.getCurrentUrl().equals("https://techno.study/jobcenter"));
         MyFunc.Wait(2);
 
         driver.navigate().back();
 
         MyFunc.Wait(2);
 
-        WebElement dropdown5=driver.findElement(By.xpath("//div[@class='t228__centerside t228__menualign_left']//a[text()='Kurslar']"));
+        WebElement dropdown5 = driver.findElement(By.xpath("//div[@class='t228__centerside t228__menualign_left']//a[text()='Kurslar']"));
         dropdown5.click();
 
-        WebElement masterProgram=driver.findElement(By.xpath("(//div[@class='t966__menu-item-title t-name'])[5]"));
+        WebElement masterProgram = driver.findElement(By.xpath("(//div[@class='t966__menu-item-title t-name'])[5]"));
 
         masterProgram.click();
 
         wait.until(ExpectedConditions.urlToBe("https://techno.study/masters"));
-        Assert.assertTrue("ilgili kurs sayfasina yonlendirilmedi",driver.getCurrentUrl().equals("https://techno.study/masters"));
+        Assert.assertTrue("ilgili kurs sayfasina yonlendirilmedi", driver.getCurrentUrl().equals("https://techno.study/masters"));
         MyFunc.Wait(2);
 
         driver.navigate().back();
 
         MyFunc.Wait(2);
-
 
 
         BekleVeKapat();
     }
 
     @Test
-    public void US_02_loginTest(){
+    public void US_02_loginTest() {
         driver.get("https://techno.study/tr");
 
-        WebElement campusLogin=driver.findElement(By.linkText("Campus Login"));
-        Assert.assertTrue("Login seçeneği görünmüyor",campusLogin.getText().toLowerCase().contains("login"));
+        WebElement campusLogin = driver.findElement(By.linkText("Campus Login"));
+        Assert.assertTrue("Login seçeneği görünmüyor", campusLogin.getText().toLowerCase().contains("login"));
         campusLogin.click();
 
         WebElement girisYap = driver.findElement(By.xpath("//span[@class='mdc-button__label']"));
@@ -130,16 +129,16 @@ public class MainClass extends BaseDriver {
     }
 
     @Test
-    public void kursBasvuruTesti (){
+    public void kursBasvuruTesti() {
 
-        String country="Andorra";
-        String kurs="SDET Türkçe"; // Menü: SDET Türkçe, Veri Bilimi, Job Center & Arbeitsamt, Veri Analitiği
-        String survey="Youtube"; // Menü: Youtube, Instagram, Facebook, LinkedIn, Mezundan, Arkadaş vasıtası ile, Website, Başka
+        String country = "Andorra";
+        String kurs = "SDET Türkçe"; // Menü: SDET Türkçe, Veri Bilimi, Job Center & Arbeitsamt, Veri Analitiği
+        String survey = "Youtube"; // Menü: Youtube, Instagram, Facebook, LinkedIn, Mezundan, Arkadaş vasıtası ile, Website, Başka
 
         driver.get("https://techno.study/tr");
         MyFunc.Wait(2);
 
-        WebElement basvurBtn=driver.findElement(By.linkText("BAŞVUR"));
+        WebElement basvurBtn = driver.findElement(By.linkText("BAŞVUR"));
         basvurBtn.click();
 
         WebElement adSoyad = driver.findElement(By.name("name"));
@@ -150,11 +149,11 @@ public class MainClass extends BaseDriver {
         email.sendKeys("test_usma@gmail.com");
         MyFunc.Wait(2);
 
-        WebElement countryInput=driver.findElement(By.xpath("//span[@class='t-input-phonemask__select-triangle']"));
+        WebElement countryInput = driver.findElement(By.xpath("//span[@class='t-input-phonemask__select-triangle']"));
         countryInput.click();
         MyFunc.Wait(2);
 
-        WebElement areaCode = driver.findElement(By.xpath("//div[@class='t-input-phonemask__options-name' and text()='"+country+"']"));
+        WebElement areaCode = driver.findElement(By.xpath("//div[@class='t-input-phonemask__options-name' and text()='" + country + "']"));
         areaCode.click();
         MyFunc.Wait(2);
 
@@ -162,15 +161,15 @@ public class MainClass extends BaseDriver {
         telefon.sendKeys("999 999");
         MyFunc.Wait(2);
 
-        WebElement ulke = driver.findElement(By.xpath("//select[@name='country']/option[@value='"+ country +"']"));
+        WebElement ulke = driver.findElement(By.xpath("//select[@name='country']/option[@value='" + country + "']"));
         ulke.click();
         MyFunc.Wait(2);
 
-        WebElement kursSecimi = driver.findElement(By.xpath("//select[@name='course']/option[@value='"+ kurs +"']"));
+        WebElement kursSecimi = driver.findElement(By.xpath("//select[@name='course']/option[@value='" + kurs + "']"));
         kursSecimi.click();
         MyFunc.Wait(2);
 
-        WebElement biziNerdenDuydunuz = driver.findElement(By.xpath("//select[@name='survey']/option[@value='"+ survey +"']"));
+        WebElement biziNerdenDuydunuz = driver.findElement(By.xpath("//select[@name='survey']/option[@value='" + survey + "']"));
         biziNerdenDuydunuz.click();
         MyFunc.Wait(2);
 
@@ -192,45 +191,46 @@ public class MainClass extends BaseDriver {
 
         BekleVeKapat();
     }
+
     @Test
-    public void US_04_coursesTest(){
+    public void US_04_coursesTest() {
         driver.get("https://techno.study/tr");
         List<WebElement> kurslar = driver.findElements(By.xpath("//div[@field='descr']//li[@style='color: rgb(0, 0, 0);']"));
-        Assert.assertTrue("Kurslar menüsünde tüm kurslar görünmüyor",kurslar.size()==4);
-        for (WebElement e : kurslar){
+        Assert.assertTrue("Kurslar menüsünde tüm kurslar görünmüyor", kurslar.size() == 4);
+        for (WebElement e : kurslar) {
             System.out.println(e.getText());
         }
         WebElement sdetKursu = driver.findElement(By.xpath("//div[@field='descr']//a[text()='SDET Yazılım Test Mühendisi']"));
         sdetKursu.click();
-        wait.until(ExpectedConditions.textToBe(By.xpath("//div[text()='Yazılım Test Mühendisi']"),"Yazılım Test Mühendisi"));
-        WebElement sdetAciklama=driver.findElement(By.xpath("//div[text()='Yazılım Test Mühendisi']"));
+        wait.until(ExpectedConditions.textToBe(By.xpath("//div[text()='Yazılım Test Mühendisi']"), "Yazılım Test Mühendisi"));
+        WebElement sdetAciklama = driver.findElement(By.xpath("//div[text()='Yazılım Test Mühendisi']"));
         System.out.println("sdetAciklama = " + sdetAciklama.getText().toLowerCase());
-        Assert.assertTrue("hatalı kurs içeriği",sdetAciklama.getText().toLowerCase().contains("test"));
+        Assert.assertTrue("hatalı kurs içeriği", sdetAciklama.getText().toLowerCase().contains("test"));
 
         WebElement android = driver.findElement(By.xpath("//div[@field='descr']//a[text()='Android uygulama geliştirme']"));
         android.click();
-        wait.until(ExpectedConditions.textToBe(By.xpath("//strong[text()='Android uygulama geliştirme']"),"Android uygulama geliştirme"));
-        WebElement androidAciklama=driver.findElement(By.xpath("//strong[text()='Android uygulama geliştirme']"));
+        wait.until(ExpectedConditions.textToBe(By.xpath("//strong[text()='Android uygulama geliştirme']"), "Android uygulama geliştirme"));
+        WebElement androidAciklama = driver.findElement(By.xpath("//strong[text()='Android uygulama geliştirme']"));
         System.out.println("androidAciklama = " + androidAciklama.getText().toLowerCase());
-        Assert.assertTrue("hatalı kurs içeriği",androidAciklama.getText().toLowerCase().contains("android"));
+        Assert.assertTrue("hatalı kurs içeriği", androidAciklama.getText().toLowerCase().contains("android"));
 
         WebElement veriBilimi = driver.findElement(By.xpath("//div[@field='descr']//a[text()='Veri bilimi']"));
         veriBilimi.click();
-        wait.until(ExpectedConditions.textToBe(By.xpath("//div[text()='Veri Bilimi Bootcamp']"),"Veri Bilimi Bootcamp"));
-        WebElement veriBilimiAciklama=driver.findElement(By.xpath("//div[text()='Veri Bilimi Bootcamp']"));
+        wait.until(ExpectedConditions.textToBe(By.xpath("//div[text()='Veri Bilimi Bootcamp']"), "Veri Bilimi Bootcamp"));
+        WebElement veriBilimiAciklama = driver.findElement(By.xpath("//div[text()='Veri Bilimi Bootcamp']"));
         System.out.println("veriBilimiAciklama = " + veriBilimiAciklama.getText().toLowerCase());
-        Assert.assertTrue("hatalı kurs içeriği",veriBilimiAciklama.getText().toLowerCase().contains("veri"));
+        Assert.assertTrue("hatalı kurs içeriği", veriBilimiAciklama.getText().toLowerCase().contains("veri"));
 
         BekleVeKapat();
     }
 
     @Test
-    public void sosyalMedyaErisimTesti (){
+    public void sosyalMedyaErisimTesti() {
         driver.get("https://techno.study/tr");
         MyFunc.Wait(2);
 
         List<WebElement> linkler = driver.findElements(By.xpath("//div[@class='t-sociallinks']//a[@target='_blank']"));
-        for (WebElement e : linkler){
+        for (WebElement e : linkler) {
             MyFunc.Wait(2);
             e.click();
 
@@ -238,8 +238,8 @@ public class MainClass extends BaseDriver {
         Set<String> windowsIdler = driver.getWindowHandles();
         for (String id : windowsIdler) {
             driver.switchTo().window(id);
-            System.out.println("title= "+driver.getTitle()+" -url= "+driver.getCurrentUrl());
-            Assert.assertTrue("URL 'techno' yazısını içermiyor" ,  driver.getCurrentUrl().toLowerCase().contains("techno"));
+            System.out.println("title= " + driver.getTitle() + " -url= " + driver.getCurrentUrl());
+            Assert.assertTrue("URL 'techno' yazısını içermiyor", driver.getCurrentUrl().toLowerCase().contains("techno"));
         }
 
         BekleVeKapat();
@@ -296,31 +296,31 @@ public class MainClass extends BaseDriver {
     }
 
     @Test
-    public void US_07_logoTest () throws AWTException, IOException, InterruptedException {
+    public void US_07_logoTest() throws AWTException, IOException, InterruptedException {
         driver.navigate().to("https://techno.study/tr");
 
         List<WebElement> detayliBilgiler = driver.findElements(By.xpath("//a[text()='Detaylı bilgi']"));
-        Assert.assertTrue("Her kurs için detaylı bilgi butonu yok",detayliBilgiler.size()==3);
+        Assert.assertTrue("Her kurs için detaylı bilgi butonu yok", detayliBilgiler.size() == 3);
 
         WebElement sdetBilgi = driver.findElement(By.xpath("(//a[text()='Detaylı bilgi'])[2]"));
         sdetBilgi.click();
 
         wait.until(ExpectedConditions.urlToBe("https://techno.study/tr/sdet"));
-        Assert.assertTrue("Hatalı kurs sayfasına yönlendirildi",driver.getCurrentUrl().contains("sdet"));
+        Assert.assertTrue("Hatalı kurs sayfasına yönlendirildi", driver.getCurrentUrl().contains("sdet"));
 
         driver.navigate().back();
 
         WebElement androidBilgi = driver.findElement(By.xpath("(//a[text()='Detaylı bilgi'])[3]"));
         androidBilgi.click();
         wait.until(ExpectedConditions.urlToBe("https://techno.study/tr/androidapp"));
-        Assert.assertTrue("Hatalı kurs sayfasına yönlendirildi",driver.getCurrentUrl().contains("android"));
+        Assert.assertTrue("Hatalı kurs sayfasına yönlendirildi", driver.getCurrentUrl().contains("android"));
 
         driver.navigate().back();
 
         WebElement dataBilgi = driver.findElement(By.xpath("(//a[text()='Detaylı bilgi'])[1]"));
         dataBilgi.click();
         wait.until(ExpectedConditions.urlToBe("https://techno.study/tr/data"));
-        Assert.assertTrue("Hatalı kurs sayfasına yönlendirildi",driver.getCurrentUrl().contains("data"));
+        Assert.assertTrue("Hatalı kurs sayfasına yönlendirildi", driver.getCurrentUrl().contains("data"));
 
         BekleVeKapat();
     }
@@ -332,26 +332,26 @@ public class MainClass extends BaseDriver {
             "Kullanım Şartları" sayfası, kullanıcıların şartları okuyup anlamaları için uygun bir şekilde düzenlenmiş olmalıdır.. */
         driver.get("https://techno.study/tr/");
 
-        WebElement sartlar= driver.findElement(By.xpath("//span[@style='color: rgb(83, 231, 190);']"));
+        WebElement sartlar = driver.findElement(By.xpath("//span[@style='color: rgb(83, 231, 190);']"));
         MyFunc.Wait(3);
 
-        JavascriptExecutor js=(JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);",sartlar);        // elemente kadar kaydırdım sayfayı
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", sartlar);        // elemente kadar kaydırdım sayfayı
 
-        Assert.assertTrue("beklenen yazı yok",sartlar.getText().contains("Şartlar"));
+        Assert.assertTrue("beklenen yazı yok", sartlar.getText().contains("Şartlar"));
 
-        String urlAnasayfa= driver.getCurrentUrl();
+        String urlAnasayfa = driver.getCurrentUrl();
 
         sartlar.click();   //aşağı indi, tıkladı
 
-        String tiklamaSonrasiURL= driver.getCurrentUrl();
+        String tiklamaSonrasiURL = driver.getCurrentUrl();
         //System.out.println(urlAnasayfa+"  "+tiklamaSonrasiURL);  kendıme kontrol ıcın urllerı yazdırdım
 
-        TakesScreenshot ts=(TakesScreenshot) driver;
-        File hafizadakiHali= ts.getScreenshotAs(OutputType.FILE);
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File hafizadakiHali = ts.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(hafizadakiHali, new File("ekranGoruntuleri\\screenshot_cansu.png"));
 
-        Assert.assertNotEquals("url değişmedi yeni sayfa açılmadı",tiklamaSonrasiURL,urlAnasayfa);   // eguals olunca test pass ama ben notEquals olmasını beklıyorum ama url ler esıt oldugu ıcın hata verıyor cnku tıklayıncz url degısmedı
+        Assert.assertNotEquals("url değişmedi yeni sayfa açılmadı", tiklamaSonrasiURL, urlAnasayfa);   // eguals olunca test pass ama ben notEquals olmasını beklıyorum ama url ler esıt oldugu ıcın hata verıyor cnku tıklayıncz url degısmedı
 
 
         BekleVeKapat();
