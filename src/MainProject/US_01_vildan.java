@@ -20,7 +20,7 @@ import java.util.List;
 public class US_01_vildan extends BaseDriver {
     @Test
 
-    public void Test(){
+    public void US_01_Test(){
         driver.navigate().to("https://techno.study/tr");
         MyFunc.Wait(2);
 

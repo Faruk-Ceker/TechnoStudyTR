@@ -14,7 +14,7 @@ import java.util.List;
 public class US_06_vildan extends BaseDriver {
     @Test
 
-    public void Test() {
+    public void US_06_Test() {
 
 
         driver.navigate().to("https://techno.study/tr");
